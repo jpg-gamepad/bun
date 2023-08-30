@@ -39,6 +39,11 @@ Bun.serve({
     open(ws) {}, // a socket is opened
     close(ws, code, message) {}, // a socket is closed
     drain(ws) {}, // the socket is ready to receive more data
+    ping(ws) {}, // Sends a ping control message. Returns sendStatus similar to ws.send
+    pong(ws) {}, // Callback to be used with ws.send({ type: 'pong' });
+    subscribe(ws) {}, // Subscribe to a topic
+    unsubscribe(ws) {}, // Unsubscribe from a topic. Returns true on success, if the websocket was subscribed
+    isSubscribed(ws) {}, // Returns whether this websocket is subscribed to topic
   },
 });
 ```
